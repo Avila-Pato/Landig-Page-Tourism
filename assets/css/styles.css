@@ -357,8 +357,10 @@ img {
   overflow: hidden;
 }
 
+
+
 .about__img {
-  width: 300px;
+  width: 100%;
   transition: transform 0.4s;
 }
 
@@ -442,7 +444,7 @@ img {
 
 .explore__img {
   width: 100%;
-  height: 333px;
+  height: 33px;
   object-fit: cover;
   object-position: center;
 }
@@ -469,16 +471,23 @@ img {
 }
 
 .explore__user {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 0.5rem;
+  flex-direction: column;
+  width: 10%; /* Ajuste inicial para pantallas grandes */
+  max-width: 60rem; /* Límite máximo de ancho */
+  margin: 0 auto;
+  text-align: center;
 }
 
 .explore__perfil {
-  width: 30px;
+  width: 100%;
+  max-width: 12rem; /* Ajuste el tamaño de la imagen */
   border-radius: 50%;
 }
+
+
 .explore__name {
   font-size: var(--small-font-size);
   color: var(--title-color);
@@ -487,16 +496,24 @@ img {
 /*=============== JOIN ===============*/
 
 .join__container {
-  row-gap: 3rem;
-  padding-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas para pantallas grandes */
+  gap: 2rem;
+  align-items: center;
 }
 
-.join__data {
+.join__data,
+.join__img{
   text-align: center;
 }
 
+.join__data h2 {
+  font-size: 2rem;
+}
+
 .join__description {
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 
 .join__form {
@@ -507,6 +524,9 @@ img {
 .join__input {
   padding: 1.25rem 1rem;
   background-color: var(--container-color);
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+
 }
 .join__button {
   cursor: pointer;
@@ -659,7 +679,7 @@ img {
 }
 
 /* para dispositivos medianos */
-@media screen and (max-width: 567px) {
+
   .home__container,
   .about__container,
   .explore__content,
@@ -668,10 +688,13 @@ img {
     justify-content: center;
   }
 
+
+
+  
   .footer__data {
     grid-template-columns: repeat(3, max-content);
   }
-}
+
 
 @media screen and (min-width: 768px) {
   .home__cards {
@@ -851,3 +874,4 @@ img {
     right: 3rem;
   }
 }
+

@@ -85,16 +85,45 @@ window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 
+// Configuración global de ScrollReveal
 const sr = ScrollReveal({
-  origin: "top",
-  distance: "60px",
-  duration: 3000,
-  delay: 400,
-  // reset: true,
+  distance: "60px", // Ajuste de distancia para animaciones más suaves
+  duration: 2500,   // Duración de la animación
+  delay: 400,       // Retraso general de las animaciones
+  reset: false,      // Las animaciones se ejecutan cada vez que el elemento entra en vista
 });
 
-sr.reveal(`.home__data, .explore__data, .explore__user, .footer__container`);
-sr.reveal(`.home__card`, { delay: 600, distance: "100px", interval: 100 });
-sr.reveal(`.about__data, .join__image`, { origin: "right" });
-sr.reveal(`.about__image, .join__data`, { origin: "left" });
-sr.reveal(`.popular__card`, { interval: 200 });
+// Animaciones de scroll para diferentes secciones
+
+// Animación para los datos de las secciones home, explore y explore user
+sr.reveal(`.home__data, .explore__data, .explore__user`, {
+  interval: 100,  // Intervalo entre las animaciones de los elementos dentro de la misma clase
+});
+
+// Animación para las tarjetas de la sección home
+sr.reveal(`.home__card`, {
+  delay: 600,     // Retraso específico para las tarjetas
+  distance: "80px", // Distancia ajustada para que sea más corta en pantallas pequeñas
+  interval: 100,  // Intervalo entre tarjetas
+});
+
+// Animación para la sección about y join (datos e imágenes)
+sr.reveal(`.about__data, .join__image`, {
+  origin: "center", // Animación desde la derecha
+  mobile: false,   // Deshabilitar en móviles si es necesario para mejorar la UX
+});
+
+sr.reveal(`.about__image, .join__data`, {
+  origin: "left",  // Animación desde la izquierda
+  mobile: false,   // Deshabilitar en móviles si es necesario para mejorar la UX
+});
+
+// Animación para las tarjetas de la sección popular
+sr.reveal(`.popular__card`, {
+  interval: 200,  // Intervalo entre las animaciones de las tarjetas
+  mobile: true,   // Asegurar que las animaciones funcionan también en móviles
+});
+sr.reveal(`.explore__content`, {
+  interval: 200,  // Intervalo entre las animaciones de las tarjetas
+  mobile: true,   // Asegurar que las animaciones funcionan también en móviles
+});
